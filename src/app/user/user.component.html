@@ -1,15 +1,16 @@
 <div class="user" [appBackgroundColor]="index">
   <p [appFirstDirective]="'green'" [backgroundColor]="'yellow'">
     <span>Name: </span>
-    <span>{{ user.name }}</span>
+    <span>{{ user.name | myUpperCase | appendWordPipe:"Dear" }}</span>
   </p>
   <p [appFirstDirective]="'yellow'">
     <span>Phone number: </span>
-    <span>{{ user.phone }}</span>
+    <span>{{ user.phone | splitPhoneNumber }}</span>
   </p>
   <p [appFirstDirective]="'red'">
     <span>Email: </span>
     <span>{{ user.email }}</span>
   </p>
+  <p>{{ 30 | modulo:7 }}</p>
   <button (click)="onDeleteButtonClick()">Delete me</button>
 </div>
