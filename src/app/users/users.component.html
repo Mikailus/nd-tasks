@@ -1,0 +1,9 @@
+<p>Hello, I'm users component!</p>
+
+<div>
+  <app-user
+    *ngFor="let user of usersList"
+    [user]="user"
+    (delete)="onUserDelete($event)">
+  </app-user>
+</div>
