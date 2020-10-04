@@ -10,7 +10,9 @@ export class UsersComponent {
   public usersList: User[] = [
     { id: 1, name: 'Jan', phone: 123123123, email: 'jan@jan' },
     { id: 2, name: 'Antek', phone: 456456465, email: 'antek@antek' },
-    { id: 3, name: 'Tomek', phone: 789789789, email: 'tomek@tomek' }
+    { id: 3, name: 'Tomek', phone: 789789789, email: 'tomek@tomek' },
+    { id: 4, name: 'Radek', phone: 789789789, email: 'radek@radek' },
+    { id: 5, name: 'Tomek', phone: 789789789, email: 'tomek@tomek' }
   ];
 
   onUserDelete(id: number): void {

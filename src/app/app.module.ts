@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 import { FirstDirectiveDirective } from './first-directive.directive';
+import { BackgroundColorDirective } from './background-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserComponent,
-    FirstDirectiveDirective
+    FirstDirectiveDirective,
+    BackgroundColorDirective
   ],
   imports: [
     BrowserModule

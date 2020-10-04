@@ -8,6 +8,7 @@ import { User } from '../user.interface';
 })
 export class UserComponent {
   @Input() user: User;
+  @Input() index: number;
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
 onDeleteButtonClick(): void {
