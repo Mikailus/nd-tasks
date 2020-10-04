@@ -1,13 +1,13 @@
 <div class="user">
-  <p>
+  <p [appFirstDirective]="'green'" [backgroundColor]="'yellow'">
     <span>Name: </span>
     <span>{{ user.name }}</span>
   </p>
-  <p>
+  <p [appFirstDirective]="'yellow'">
     <span>Phone number: </span>
     <span>{{ user.phone }}</span>
   </p>
-  <p>
+  <p [appFirstDirective]="'red'">
     <span>Email: </span>
     <span>{{ user.email }}</span>
   </p>
