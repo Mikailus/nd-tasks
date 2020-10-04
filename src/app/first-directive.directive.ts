@@ -9,7 +9,6 @@ export class FirstDirectiveDirective implements OnInit {
   @Input() backgroundColor: string;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
-    console.log(this.elementRef.nativeElement);
   }
   ngOnInit(): void {
     this.renderer.setStyle(this.elementRef.nativeElement, 'color', this.fontColor);

@@ -10,6 +10,7 @@ import { ModuloPipe } from './modulo.pipe';
 import { MyUpperCasePipe } from './my-upper-case.pipe';
 import { AppendWordPipePipe } from './append-word-pipe.pipe';
 import { SplitPhoneNumberPipe } from './split-phone-number.pipe';
+import { CountriesComponent } from './countries/countries.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SplitPhoneNumberPipe } from './split-phone-number.pipe';
     ModuloPipe,
     MyUpperCasePipe,
     AppendWordPipePipe,
-    SplitPhoneNumberPipe
+    SplitPhoneNumberPipe,
+    CountriesComponent
   ],
   imports: [
     BrowserModule
