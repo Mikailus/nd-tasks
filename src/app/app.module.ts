@@ -14,6 +14,20 @@ import { SplitPhoneNumberPipe } from './split-phone-number.pipe';
 import { CountriesComponent } from './countries/countries.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Route, RouterModule } from '@angular/router';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserTileComponent } from './user-tile/user-tile.component';
+import { UserOneComponent } from './user-one/user-one.component';
+
+const routes: Route[] = [
+  { path: 'users', component: UsersComponent, children: [
+    { path: 'list', component: UserListComponent },
+    { path: 'tile', component: UserTileComponent },
+    { path: ':id',  component: UserOneComponent },
+  ]},
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '**', redirectTo: 'dashboard'}
+];
 
 @NgModule({
   declarations: [
@@ -27,12 +41,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppendWordPipePipe,
     SplitPhoneNumberPipe,
     CountriesComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserListComponent,
+    UserTileComponent,
+    UserOneComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
