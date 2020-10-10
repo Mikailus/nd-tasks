@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../countries.service';
 import { CountryButton } from '../country-button.interface';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-countries',
@@ -11,7 +12,9 @@ import { CountryButton } from '../country-button.interface';
 export class CountriesComponent implements OnInit {
   public countryButtons: CountryButton[];
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(
+    private countriesService: CountriesService,
+    private communicationService: CommunicationService) {}
 
   ngOnInit(): void {
     this.countriesService.getCountryButtons()
@@ -20,4 +23,7 @@ export class CountriesComponent implements OnInit {
       });
   }
 
+  public onSendMessageClick(): void {
+    this.communicationService.messageSubject.next('Button clicked');
+  }
 }
