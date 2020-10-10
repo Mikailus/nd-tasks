@@ -1,16 +1,33 @@
 <div class="user" [appBackgroundColor]="index">
-  <p [appFirstDirective]="'green'" [backgroundColor]="'yellow'">
-    <span>Name: </span>
-    <span>{{ user.name | myUpperCase | appendWordPipe:"Dear" }}</span>
-  </p>
-  <p [appFirstDirective]="'yellow'">
-    <span>Phone number: </span>
-    <span>{{ user.phone | splitPhoneNumber }}</span>
-  </p>
-  <p [appFirstDirective]="'red'">
-    <span>Email: </span>
-    <span>{{ user.email }}</span>
-  </p>
-  <p>{{ 30 | modulo:7 }}</p>
+  <ng-container *ngIf="!isInEditMode">
+    <p [appFirstDirective]="'green'" [backgroundColor]="'yellow'">
+      <span>Name: </span>
+      <span>{{ user.name | myUpperCase | appendWordPipe:"Dear" }}</span>
+    </p>
+    <p [appFirstDirective]="'yellow'">
+      <span>Phone number: </span>
+      <span>{{ user.phone | splitPhoneNumber }}</span>
+    </p>
+    <p [appFirstDirective]="'red'">
+      <span>Email: </span>
+      <span>{{ user.email }}</span>
+    </p>
+  </ng-container>
+  <ng-container *ngIf="isInEditMode" [formGroup]="userFormGroup">
+    <label class="label">
+      <span class="label-name">Name</span>
+      <input type="text" formControlName="name">
+    </label>
+    <label class="label">
+      <span class="label-name">Phone number</span>
+      <input type="text" formControlName="phoneNumber">
+    </label>
+    <label class="label">
+      <span class="label-name">Email</span>
+      <input type="text" formControlName="email">
+    </label>
+  </ng-container>
   <button (click)="onDeleteButtonClick()">Delete me</button>
+  <button *ngIf="!isInEditMode" (click)="toggleEditMode()">Edit</button>
+  <button *ngIf="isInEditMode" (click)="onSaveClick()">Save</button>
 </div>
