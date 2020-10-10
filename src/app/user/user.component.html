@@ -13,11 +13,14 @@
       <span>{{ user.email }}</span>
     </p>
   </ng-container>
-  <ng-container *ngIf="isInEditMode" [formGroup]="userFormGroup">
+  <form *ngIf="isInEditMode" [formGroup]="userFormGroup">
     <label class="label">
       <span class="label-name">Name</span>
       <input type="text" formControlName="name">
     </label>
+    <div *ngIf="userFormGroup.touched && userFormGroup.get('name').errors?.required">
+      This field is required
+    </div>
     <label class="label">
       <span class="label-name">Phone number</span>
       <input type="text" formControlName="phoneNumber">
@@ -26,8 +29,9 @@
       <span class="label-name">Email</span>
       <input type="text" formControlName="email">
     </label>
-  </ng-container>
+
+  </form>
   <button (click)="onDeleteButtonClick()">Delete me</button>
   <button *ngIf="!isInEditMode" (click)="toggleEditMode()">Edit</button>
-  <button *ngIf="isInEditMode" (click)="onSaveClick()">Save</button>
+  <button *ngIf="isInEditMode" (click)="onSaveClick()" [disabled]="userFormGroup.valid">Save</button>
 </div>

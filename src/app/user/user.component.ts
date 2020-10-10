@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { User } from '../user.interface';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { notNullValidator } from '../validators/not-null.validator';
 
 @Component({
   selector: 'app-user',
@@ -17,8 +18,14 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userFormGroup = new FormGroup({
-      name: new FormControl(this.user.name),
-      phoneNumber: new FormControl(this.user.phone),
+      name: new FormControl(this.user.name, [
+        Validators.required,
+        notNullValidator
+      ]),
+      phoneNumber: new FormControl(this.user.phone, [
+        Validators.required,
+        Validators.minLength(9)
+      ]),
       email: new FormControl(this.user.email)
     });
 
