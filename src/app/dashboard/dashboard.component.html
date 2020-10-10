@@ -1,0 +1,76 @@
+<form [formGroup]="personFormGroup" (ngSubmit)="onSubmit()">
+  <label class="label">
+    <span class="label-name">Name</span>
+    <input type="text" formControlName="name">
+  </label>
+
+  <label class="label">
+    <span class="label-name">Last name</span>
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <label class="label">
+    <span class="label-name">Age</span>
+    <input type="text" formControlName="age">
+  </label>
+
+  <label class="label">
+    <span class="label-name">Password</span>
+    <input type="text" formControlName="password">
+  </label>
+
+  <fieldset formGroupName="address">
+    <legend>Address</legend>
+    <label class="label">
+      <span class="label-name">Town</span>
+      <input type="text" formControlName="town">
+    </label>
+    <label class="label">
+      <span class="label-name">Street</span>
+      <input type="text" formControlName="street">
+    </label>
+    <label class="label">
+      <span class="label-name">Postal code</span>
+      <input type="text" formControlName="postCode">
+    </label>
+  </fieldset>
+
+  <label class="label">
+    <span class="label-name">Email</span>
+    <input type="text" formControlName="email">
+  </label>
+
+  <label class="label">
+    <span class="label-name">Phone number</span>
+    <input type="text" formControlName="phoneNumber">
+  </label>
+
+  <label class="label">
+    <span class="label-name">Do you agree for a contact?</span>
+    <input type="checkbox" formControlName="agreeForContact">
+  </label>
+
+  <fieldset>
+    <legend>Do you exercise?</legend>
+    <label class="label">
+      <span class="label-name">Yes</span>
+      <input type="radio" formControlName="isExercising" [value]="true">
+    </label>
+    <label class="label">
+      <span class="label-name">No</span>
+      <input type="radio" formControlName="isExercising" [value]="false">
+    </label>
+  </fieldset>
+
+  <label class="label">
+    <span class="label-name">Your favourite sport</span>
+    <select formControlName="favouriteSport">
+      <option value="soccer">Soccer</option>
+      <option value="volleyball">Volleyball</option>
+    </select>
+  </label>
+
+  <textarea formControlName="remarks" placeholder="Your remarks"></textarea>
+
+  <button type="submit">Send</button>
+</form>

@@ -11,6 +11,8 @@ import { MyUpperCasePipe } from './my-upper-case.pipe';
 import { AppendWordPipePipe } from './append-word-pipe.pipe';
 import { SplitPhoneNumberPipe } from './split-phone-number.pipe';
 import { CountriesComponent } from './countries/countries.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { CountriesComponent } from './countries/countries.component';
     MyUpperCasePipe,
     AppendWordPipePipe,
     SplitPhoneNumberPipe,
-    CountriesComponent
+    CountriesComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
